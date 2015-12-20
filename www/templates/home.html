@@ -1,7 +1,11 @@
-<ion-view view-title="Pharmacy">
+<ion-view view-title="">
+  <ion-nav-title>
+       <!-- <img class="title-image" src="img/logo.png">-->
+           <h1 class="title" style="right:50px;color:#0F75BC;font-weight:bold;font-size:xx-large">Pharmacy</h1>
+    </ion-nav-title>
   <ion-content>
   <ion-item>
-    New Order Available
+    New Order Available, check the drugs available and click go.
 	</ion-item>
         <ion-list style="">
             <ion-checkbox style="">Drug 1 ----10</ion-checkbox>
@@ -12,12 +16,13 @@
         <div style="" class="list card">
             <div class="item item-body">
                 
-                <button style="" class="positive button button-stable button-block">Go!</button>
-                <button style="assertive" class="button button-stable button-block ">Ignore!</button>
+                <button style="" class="positive button button-positive button-block">Go!</button>
+                <button style="" class="button button-royal button-block ">Ignore!</button>
             </div>
         </div>
 		 <div style="" class="list card">
             <div class="item item-body">
+			(show this only when no orders available)
                 <h4 style="">No Orders Available</h4>
                 <h4 style="">Check Back Again!</h4>
             </div>
