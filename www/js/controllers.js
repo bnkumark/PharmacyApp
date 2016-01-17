@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+var app=angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,9 +41,41 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('HomeCtrl', function($scope) {
-
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+//-------------------------------------------------------------------------------------------------------
+app.constant('config', {
+    //serverUrl: 'http://localhost:8100/api/',
+    serverUrl: 'http://demo.pillocate.com/'
 });
+
+app.config(['$httpProvider', function ($httpProvider) {
+    }]);
+
+//-------------------------------------------------------------------------------------------------------
+app.service('CheckNetwork', function ($q) {
+    return {
+        check: function () {
+            if (typeof window.Connection === "undefined")
+            {
+                console.log("No active internet connection!! Please check and try again");
+                alert("No active internet connection!!");
+            }
+            else if (window.Connection) {
+                if (navigator.connection.type == Connection.NONE) {
+                    console.log("No active internet connection!! Please check and try again");
+                    alert("No active internet connection!!");
+                }
+            }
+        },
+        UndefinedToEmpty: function (data) {
+            console.log("UndefinedToEmpty passed value:" + data);
+            if (!data) {
+                console.log("returned empty from UndefinedToEmpty");
+                return '';
+            }
+            else {
+                return data;
+            }
+        },
+
+    }
+})    //end CheckNetwork service
