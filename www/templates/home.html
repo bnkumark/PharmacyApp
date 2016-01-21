@@ -12,16 +12,16 @@
               <div class="item item-divider">
                   Order
               </div>
-              <div class="item-input-inset" ng-disabled="true" ng-if="order.orderStatus!='1'">
+              <!--<div class="item-input-inset" ng-disabled="true" ng-if="order.orderStatus!='1'">
                   <ion-spinner class="input-wrapper"></ion-spinner><div class="input-wrapper"> Awaiting User Confirmation</div>
-              </div>
+              </div>-->
               <div class="item item-body">
                   <ion-list ng-repeat="orderItem in order.orderItemInfo">
-                      <ion-toggle toggle-class="toggle-calm">{{orderItem.brandName}} - {{orderItem.quantity}}</ion-toggle>
+                      <ion-toggle ng-model="orderItem.availabilityIndex" toggle-class="toggle-calm">{{orderItem.brandName}} - {{orderItem.quantity}}</ion-toggle>
                   </ion-list>
                   <div class="item-input-inset">
-                      <a ng-href="#/app/home" href="#/app/home" class="item-input-wrapper button button-positive">H.D</a>
-                      <input class="item-input-wrapper button button-balanced" value="S.P" type="submit">
+                      <button class="item-input-wrapper button button-positive" type="button" ng-click="UpdateStatus(1,order)">H.D</button>
+                      <button class="item-input-wrapper button button-balanced" type="button" ng-click="UpdateStatus(0,order)">S.P</button>
                       <button class="item-input-wrapper button button-assertive" type="button" ng-click="IgnoreOrder(order)">Ignore!</button>
                   </div>
               </div>
